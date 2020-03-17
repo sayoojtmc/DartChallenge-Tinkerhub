@@ -32,7 +32,7 @@ class Participant{
     stack.forEach((el){
       mentorNames[el]= new List();
       map[el].forEach((mentor){
-        if(mentor.timeAvailable>=time)
+        if(mentor.timeAvailable>=time)    // checks if mentor has available time greater than that the learner requires
         {
           mentorNames[el].add(mentor.name);
         }
@@ -54,24 +54,28 @@ void main() {   //Driver Code
   Participant p2 = new Participant("xddd","456@gmail.com",40);
   Participant p3 = new Participant("xddd","789@gmail.com",20);
   List dummyList = ["React","Vue","flutter","Java"]; //Add available tech here
-  dummyList.forEach((el)
+  dummyList.forEach((el)    //to avoid undefined list errors
                     {
                       mentorMap[el]=new List<Participant>();
                     });
   print("Are you a mentor?(y/n)");    //just randomly setting two mentors
   
-  p1.setMentorOrLearner(1);
-  p1.setMentorOrLearner(1);
+  p1.setMentorOrLearner(1);     // 1 for mentor 2 for learner
+  p2.setMentorOrLearner(1);
  
   String stack ="React,Vue,flutter";  // comma seperated input
-  List stck = stack.split(",");
-  stck.forEach((el)=>{
-    mentorMap[el].add(p1)
-  });
-  String stack2 ="React,flutter";
+  List stck = stack.split(","); 
+  if(p1.isMentor){
+    stck.forEach((el)=>{
+      mentorMap[el].add(p1)
+    });
+  }
+  String stack2 ="React,flutter";  
   stck = stack.split(",");
+  if(p2.isMentor){
   stck.forEach((el)=>{
     mentorMap[el].add(p2)
   });
-  p2.getMentor(['flutter','React'],20,mentorMap);
+  }
+  p2.getMentor(['flutter','React'],20,mentorMap);   // parameters : stack of tech , time available
 }
