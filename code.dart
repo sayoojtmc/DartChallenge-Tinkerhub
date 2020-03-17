@@ -22,6 +22,10 @@ class Participant{
       isMentor = false;
     }
   }
+  void setAvailableTime(int time)
+  {
+    this.timeAvailable = time;
+  }
   void getMentor(List stack,int time,Map map)
   {
     Map mentorNames  = new Map<String,List>();
