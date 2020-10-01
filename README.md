@@ -3,4 +3,4 @@ screening test for flutter course - Tinkerhub
 
 
 Challenge:
-  Create a class to do `something` in dart.
+  Create a class in dart to efficiently allocate mentor to participants.
